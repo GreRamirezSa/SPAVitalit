@@ -731,7 +731,7 @@ public class VentasAsistentePedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_table_pedidosKeyReleased
 
     private void button_actualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_actualizarMouseClicked
-        Connection miCon, miCon2, miCon4;
+ Connection miCon, miCon2, miCon4;
         float total = Float.parseFloat(lbltot.getText());
         float descuento, cambio = 0,certidi=0;
 
@@ -769,7 +769,9 @@ public class VentasAsistentePedidos extends javax.swing.JFrame {
                 default:
                     break;
             }
-            //final certificado  
+            //final certificado
+            if(combo.getSelectedIndex()!= 1){//no es credito
+            
             efectivo = JOptionPane.showInputDialog(this, "¿Cuanto dinero recibio?");
                 if (Float.parseFloat(efectivo) < total) {
                     JOptionPane.showMessageDialog(this, "Dinero insuficiente");
@@ -777,6 +779,187 @@ public class VentasAsistentePedidos extends javax.swing.JFrame {
                 else{
             
             System.out.println("ENTRO");
+                        if (miCon4 != null) {
+                            try {
+                                miCon4 = (new ConexionBD()).conectar();
+                                String sql4 = "select no_tel from clientes where no_tel='" + no + "'";
+                                Statement stmt4 = miCon.createStatement();
+                                ResultSet r4 = stmt4.executeQuery(sql4);
+                                if (r4.next()) {
+                                    if (miCon != null) {
+                                        try {
+                                            Statement stmt = miCon.createStatement();
+                                            String sql = "INSERT INTO VENTA (FECHA,USUARIO,TOTAL,TIPO_PAGO,DESCUENTO,ID_CLIENTE) VALUES ('" + fecha + "','"+Lbusu.getText()+"'," + total + ",'" + pago + "'," + text_des.getText() + ",(select id_clientes from clientes where no_tel = '" + tel.getText() + "'))";
+                                            System.out.println(total);
+                                            System.out.println("Ventas");
+                                            stmt.executeUpdate(sql);
+
+                                            for (int i = 0; i < table_pedidos.getRowCount(); i++) {
+                                                String sql2 = "INSERT INTO DET_VENTA_PEDI (ID_VENTA,ID_PEDIDO) VALUES (" + num_venta.getText() + "," + table_pedidos.getValueAt(i, 0) + ")";
+                                                stmt.executeUpdate(sql2);
+                                                String sql3 = "Update pedidos set status = 'Entregado' where id_pedido=" + table_pedidos.getValueAt(i, 0);
+                                                stmt.executeUpdate(sql3);
+                                            }
+                                            for (int i = 0; i < table_productos.getRowCount(); i++) {
+                                                String id_venta = num_venta.getText();
+                                                String id_producto = "" + table_productos.getValueAt(i, 0);
+                                                String nombre = "" + table_productos.getValueAt(i, 1);
+                                                String cant = "" + table_productos.getValueAt(i, 2);
+                                                String pre = "" + table_productos.getValueAt(i, 3);
+                                                System.out.println(" " + id_venta + " " + id_producto + " " + nombre + " " + cant + " " + pre);
+                                                String sql2 = "INSERT INTO DET_VENTA_PRODUC (ID_VENTA,ID_PRODUCTO,CANTIDAD,PRECIO_UNITARIO,NOMBRE) VALUES (" + id_venta + "," + id_producto + "," + cant + "," + pre + ",'" + nombre + "')";
+                                                stmt.executeUpdate(sql2);
+                                                String sql3 = "UPDATE PRODUCTO SET EXISTENCIAS = EXISTENCIAS - 1 WHERE ID_PRODUCTO=" + table_productos.getValueAt(i, 0);
+                                                stmt.executeUpdate(sql3);
+                                            }
+                                            for (int i = 0; i < table_serv.getRowCount(); i++) {
+                                                String sql2 = "INSERT INTO DET_VENTA_SERV(ID_VENTA,ID_SERVICIO,CANTIDAD,PRECIO_UNITARIO,NOMBRE,SES_CON) VALUES(" + num_venta.getText() + "," + table_serv.getValueAt(i, 0) + "," + table_serv.getValueAt(i, 3) + "," + table_serv.getValueAt(i, 2) + ",'" + table_serv.getValueAt(i, 1) + "'," + table_serv.getValueAt(i, 3) + ")";
+                                                stmt.executeUpdate(sql2);
+                                            }
+                                            stmt.close();
+                                            JOptionPane.showMessageDialog(this, "Venta realizada con Exito");
+                                        } catch (SQLException e) {
+                                            JOptionPane.showMessageDialog(this, "Conexión Fallida" + e.getMessage());
+                                        }
+                                    }
+                                    if (combo.getSelectedIndex() == 0) {
+                                        if (miCon2 != null) {
+                                            try {
+                                                String cajadin = "select dinero as \"caja\" from caja where id_caja=1";
+                                                String nv1;
+                                                try (Statement stmt2 = miCon.createStatement()) {
+                                                    ResultSet r2 = stmt2.executeQuery(cajadin);
+                                                    r2.next();
+                                                    nv1 = r2.getString("caja");
+                                                }
+                                                float guardar = Float.parseFloat(nv1) + total;
+
+                                                String sql2 = "UPDATE caja SET dinero= " + guardar + " where id_caja=1";
+                                                try (Statement stmt3 = miCon.createStatement()) {
+                                                    stmt3.executeUpdate(sql2);
+                                                }
+                                            } catch (NumberFormatException | SQLException e) {
+                                                JOptionPane.showMessageDialog(this, "update caja " + e.getMessage());
+                                            }
+                                        }
+                                    }
+                                    if (combo.getSelectedIndex() == 1) {
+                                        if (miCon2 != null) {
+                                            try {
+                                                Statement stmtc = miCon.createStatement();
+                                                String cre = "INSERT INTO CREDITO (ID_CLIENTE,ID_VENTA,FECHA_INICIO,ESTATUS,RESTO,nombre) VALUES((select id_clientes from clientes where no_tel = '" + tel.getText() + "')," + num_venta.getText() + ",'" + fecha + "',false," + total + ",(select nombre from clientes where no_tel = '" + tel.getText() + "'));";
+                                                System.out.println(cre);
+                                                stmtc.executeUpdate(cre);
+                                            } catch (NumberFormatException | SQLException e) {
+                                                JOptionPane.showMessageDialog(this,"insert en credito "+ e);
+                                            }
+                                        }
+                                    }
+                                    cambio=Float.parseFloat(efectivo)-total;
+                                    tic
+                                            = "        Vitalit Corpo Spa       \n"
+                                            + "    Calle Rio Mississipi #33    \n"
+                                            + "   Esquina con Monte Olimpo    \n"
+                                            + "       Colonia Lindavista       \n"
+                                            + "================================\n"
+                                            + "      *** NOTA DE VENTA ***     \n"
+                                            + "FECHA: " + fecha + "  " + horaTicket + "\n"
+                                            + "NO. DE VENTA: " + num_venta.getText() + "\n"
+                                            + "================================\n"
+                                            + "--------------------------------\n"
+                                            + "           PRODUCTOS           \n"
+                                            + "--------------------------------\n"
+                                            + "CODIGO   CANT\tP.UNIT\tIMPORTE\n"
+                                            + "--------------------------------\n";
+
+                                    int totArt = 0;
+                                    for (int i = 0; i < table_productos.getRowCount(); i++) {
+                                        String cod = table_productos.getValueAt(i, 0) + "";
+                                        String prod = table_productos.getValueAt(i, 1) + "";
+                                        int can = Integer.parseInt(table_productos.getValueAt(i, 2) + "");
+                                        String pu = table_productos.getValueAt(i, 3) + "";
+                                        float tota = can * Float.parseFloat(pu);
+                                        tic
+                                                += cod + "   " + prod + "\n"
+                                                + "         " + can + "\t" + pu + "\t" + tota + "\n";
+                                        totArt += can;
+
+                                    }
+                                    tic += "--------------------------------\n"
+                                            + "           SERVICIOS            \n"
+                                            + "--------------------------------\n"
+                                            + "CODIGO   SERV\tSESIO\tIMPORTE\n"
+                                            + "--------------------------------\n";
+                                    int totServ = 0;
+                                    for (int i = 0; i < table_serv.getRowCount(); i++) {
+                                        String cods = table_serv.getValueAt(i, 0) + "";
+                                        String serv = table_serv.getValueAt(i, 1) + "";
+                                        int ses = Integer.parseInt(table_serv.getValueAt(i, 3) + "");
+                                        String cost = table_serv.getValueAt(i, 2) + "";
+                                        float totas = ses * Float.parseFloat(cost);
+                                        tic
+                                                += cods + "   " + serv + "\n"
+                                                + "         " + ses + "\t" + cost + "\t" + totas + "\n";
+                                        totServ += ses;
+
+                                    }
+                                    tic += "--------------------------------\n"
+                                            + "            PEDIDOS             \n"
+                                            + "--------------------------------\n"
+                                            + "CODIGO DEL PEDIDO \t TOTAL\n"
+                                            + "--------------------------------\n";
+                                    int totPed = 0;
+                                    for (int i = 0; i < table_pedidos.getRowCount(); i++) {
+                                        String codp = table_pedidos.getValueAt(i, 0) + "";
+                                        String totalp = table_pedidos.getValueAt(i, 1) + "";
+                                        tic
+                                                += codp + "\t\t\t   " + totalp + "\n";
+                                        totPed += table_pedidos.getRowCount();
+
+                                    }
+                                    tic += "\n\tA PAGAR:\t" + lbltot.getText() + "\n"
+                                            + "\tTOTAL PAGADO:\t" + efectivo + "\n"
+                                            + "\tCAMBIO:\t\t" + cambio + "\n"
+                                            + "\n"
+                                            + "ARTICULOS VENDIDOS: " + totArt + "\n"
+                                            + "SERVICIOS VENDIDOS: " + totServ + "\n"
+                                            + "ATENDIO: " + Lbusu.getText() + "\n"
+                                            + "================================\n"
+                                            + "            Telefonos:          \n"
+                                            + "    3111198522 y 3111608758     \n"
+                                            + "   Facebook @VitalitCorpoSpa   \n"
+                                            + " Correo   vitalit.spa@gmail.com \n"
+                                            + "  !!! GRACIAS POR SU VISITA !!! \n\n\n"
+                                            + "                                "
+                                            + "                               \t";
+                                    System.out.println(tic);
+                                    Ticket2 t = new Ticket2(tic);
+                                    tel.setText("");
+                                    text_des.setText("0");
+                                    lbltot.setText("0");
+                                    contador = 0;
+
+                                    DefaultTableModel modelo = (DefaultTableModel) table_pedidos.getModel();
+                                    modelo.setRowCount(0);
+
+                                    DefaultTableModel modelo2 = (DefaultTableModel) table_productos.getModel();
+                                    modelo2.setRowCount(0);
+
+                                    DefaultTableModel modelo3 = (DefaultTableModel) table_serv.getModel();
+                                    modelo3.setRowCount(0);
+
+                                } else {
+                                    JOptionPane.showMessageDialog(this, "Error, no existe el número  ");
+                                }
+                            } catch (SQLException e) {
+                                JOptionPane.showMessageDialog(this, "Error try catch gigante  " + e.getMessage());
+                            }
+                        }
+                    }//else del dinero}
+            }//if del combo para ver si es credito
+            else{//si es credito
+                 efectivo = 0+""; 
+                        System.out.println("ENTRO");
                         if (miCon4 != null) {
                             try {
                                 miCon4 = (new ConexionBD()).conectar();
@@ -846,13 +1029,14 @@ public class VentasAsistentePedidos extends javax.swing.JFrame {
                                             try {
                                                 Statement stmtc = miCon.createStatement();
                                                 String cre = "INSERT INTO CREDITO (ID_CLIENTE,ID_VENTA,FECHA_INICIO,ESTATUS,RESTO,nombre) VALUES((select id_clientes from clientes where no_tel = '" + tel.getText() + "')," + num_venta.getText() + ",'" + fecha + "',false," + total + ",(select nombre from clientes where no_tel = '" + tel.getText() + "'));";
+                                                System.out.println(cre);
                                                 stmtc.executeUpdate(cre);
                                             } catch (NumberFormatException | SQLException e) {
                                                 JOptionPane.showMessageDialog(this, e);
                                             }
                                         }
                                     }
-                                     cambio=Float.parseFloat(efectivo)-total;
+                                    cambio=Float.parseFloat(efectivo)-total;
                                     tic
                                             = "        Vitalit Corpo Spa       \n"
                                             + "    Calle Rio Mississipi #33    \n"
@@ -952,7 +1136,10 @@ public class VentasAsistentePedidos extends javax.swing.JFrame {
                                 JOptionPane.showMessageDialog(this, "Error  " + e.getMessage());
                             }
                         }
-                    }//else del dinero
+            
+            }//termina else del si es credito
+                
+                
                     } else {
                         JOptionPane.showMessageDialog(this, "Agregar pedidos, servicios o productos para la venta", "Error",
                                 JOptionPane.ERROR_MESSAGE);
@@ -963,12 +1150,12 @@ public class VentasAsistentePedidos extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error, no dejar campos vacíos");
             }
             //  tot.setText("");
-            //Ticket2 t = new Ticket2(tic);
+          //  Ticket2 t = new Ticket2(tic);
                         llenarCB();
             llenarCBPed();
             NumVenta();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error no se registro venta");
+            JOptionPane.showMessageDialog(this, "Error no se registro venta "+e);
         }
     }//GEN-LAST:event_button_actualizarMouseClicked
     public Integer Certificado(String id) {

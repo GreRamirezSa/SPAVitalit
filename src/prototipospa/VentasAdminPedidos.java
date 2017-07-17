@@ -958,6 +958,7 @@ public class VentasAdminPedidos extends javax.swing.JFrame {
                     }//else del dinero}
             }//if del combo para ver si es credito
             else{//si es credito
+                 efectivo = 0+""; 
                         System.out.println("ENTRO");
                         if (miCon4 != null) {
                             try {
@@ -1136,7 +1137,7 @@ public class VentasAdminPedidos extends javax.swing.JFrame {
                             }
                         }
             
-            }
+            }//termina else del si es credito
                 
                 
                     } else {
@@ -1154,7 +1155,7 @@ public class VentasAdminPedidos extends javax.swing.JFrame {
             llenarCBPed();
             NumVenta();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error no se registro venta");
+            JOptionPane.showMessageDialog(this, "Error no se registro venta "+e);
         }
     }//GEN-LAST:event_button_actualizarMouseClicked
     public Integer Certificado(String id) {
