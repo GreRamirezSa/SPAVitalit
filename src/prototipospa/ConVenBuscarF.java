@@ -31,7 +31,7 @@ import javax.swing.table.TableColumnModel;
 public class ConVenBuscarF extends javax.swing.JFrame {
 
     principalAdmin pAdmin;
-    VentasAdminConVen re;
+    VentasAdminConVenF re;
     OpcionesVenta oV;
     int contador = 0;
 
@@ -116,7 +116,7 @@ public class ConVenBuscarF extends javax.swing.JFrame {
         jPanel1.add(button_eliminar1);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 36)); // NOI18N
-        jLabel5.setText("Detalle Venta");
+        jLabel5.setText("Detalle Venta Fadmin");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoBueno.jpg"))); // NOI18N
 
@@ -314,7 +314,7 @@ public class ConVenBuscarF extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_regresarMouseClicked
-        re = new VentasAdminConVen();
+        re = new VentasAdminConVenF();
         re.setVisible(true);
         this.setVisible(false);
         re.nombre(Lbusu.getText());

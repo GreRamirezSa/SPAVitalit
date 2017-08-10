@@ -30,9 +30,9 @@ import javax.swing.table.TableColumnModel;
  */
 public class VentasAsistenteConVenF extends javax.swing.JFrame {
 
-    VentasAsistentePedidos pAdmin;
+    PrincipalAsistente pAdmin;
     OpcionesVenta oV;
-    ConVenBuscarAsistente go;
+    ConVenBuscarFA go;
     int contador = 0;
     
 
@@ -134,7 +134,7 @@ public class VentasAsistenteConVenF extends javax.swing.JFrame {
         jPanel1.add(button_eliminar2);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 36)); // NOI18N
-        jLabel5.setText("Consultar Ventas");
+        jLabel5.setText("Consultar Ventas F");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoBueno.jpg"))); // NOI18N
 
@@ -258,7 +258,7 @@ public class VentasAsistenteConVenF extends javax.swing.JFrame {
     }//GEN-LAST:event_button_verTodoMouseClicked
 
     private void button_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_regresarMouseClicked
-        pAdmin = new VentasAsistentePedidos();
+        pAdmin = new PrincipalAsistente();
         pAdmin.setVisible(true);
         this.setVisible(false);
         pAdmin.nombre(Lbusu.getText());
@@ -277,7 +277,7 @@ public class VentasAsistenteConVenF extends javax.swing.JFrame {
     }//GEN-LAST:event_table_usuariosKeyReleased
 
     private void button_eliminar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_eliminar1MouseClicked
-        go = new ConVenBuscarAsistente();
+         go = new ConVenBuscarFA();
         go.setVisible(true);
         this.setVisible(false);
         go.nombre(Lbusu.getText());

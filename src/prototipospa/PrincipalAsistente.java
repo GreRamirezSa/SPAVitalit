@@ -23,6 +23,7 @@ public class PrincipalAsistente extends javax.swing.JFrame {
     login login;
     CertificadosAsistente cer;
     ChicaAsistente chica;
+    VentasAsistenteConVenF vf;
 
     /**
      * Creates new form PrincipalAsistente
@@ -377,7 +378,10 @@ public class PrincipalAsistente extends javax.swing.JFrame {
     }//GEN-LAST:event_button_servicios1ActionPerformed
 
     private void button_ventas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_ventas1MouseClicked
-        // TODO add your handling code here:
+        vf = new VentasAsistenteConVenF();
+        vf.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
+        vf.nombre(Lbusu.getText());
     }//GEN-LAST:event_button_ventas1MouseClicked
 
     /**
