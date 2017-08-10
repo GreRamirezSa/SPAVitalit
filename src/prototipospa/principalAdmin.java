@@ -61,6 +61,7 @@ public class principalAdmin extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         button_chica = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        button_ventas1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -190,6 +191,14 @@ public class principalAdmin extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Nueva carpeta/cachica.png"))); // NOI18N
 
+        button_ventas1.setBackground(new java.awt.Color(255, 136, 18));
+        button_ventas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/transaccion.png"))); // NOI18N
+        button_ventas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_ventas1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -242,6 +251,10 @@ public class principalAdmin extends javax.swing.JFrame {
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(button_chica))
                             .addGap(40, 40, 40)))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_ventas1)
+                .addGap(334, 334, 334))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,7 +279,7 @@ public class principalAdmin extends javax.swing.JFrame {
                         .addComponent(button_chica)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(button_servicios)
                     .addComponent(button_productos)
@@ -278,7 +291,9 @@ public class principalAdmin extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(button_ventas1)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -398,6 +413,10 @@ public class principalAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_button_chicaActionPerformed
 
+    private void button_ventas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_ventas1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_ventas1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -443,6 +462,7 @@ public class principalAdmin extends javax.swing.JFrame {
     private javax.swing.JButton button_servicios;
     private javax.swing.JButton button_usuarios;
     private javax.swing.JButton button_ventas;
+    private javax.swing.JButton button_ventas1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
