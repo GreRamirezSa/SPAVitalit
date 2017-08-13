@@ -786,7 +786,8 @@ public class VentasAsistentePedidos extends javax.swing.JFrame {
                                 Statement stmt4 = miCon.createStatement();
                                 ResultSet r4 = stmt4.executeQuery(sql4);
                                 if (r4.next()) {
-                                    if (miCon != null) {
+                                    
+                                    if (miCon != null) {//***Inicio del insert
                                         try {
                                             Statement stmt = miCon.createStatement();
                                             String sql = "INSERT INTO VENTA (FECHA,USUARIO,TOTAL,TIPO_PAGO,DESCUENTO,ID_CLIENTE) VALUES ('" + fecha + "','"+Lbusu.getText()+"'," + total + ",'" + pago + "'," + text_des.getText() + ",(select id_clientes from clientes where no_tel = '" + tel.getText() + "'))";
@@ -821,7 +822,45 @@ public class VentasAsistentePedidos extends javax.swing.JFrame {
                                         } catch (SQLException e) {
                                             JOptionPane.showMessageDialog(this, "Conexión Fallida" + e.getMessage());
                                         }
-                                    }
+                                        
+                                        //--Inicio insert tabla falsa
+                                         try {
+                                            Statement stmt = miCon.createStatement();
+                                            String sql = "INSERT INTO VENTAF (FECHA,USUARIO,TOTAL,TIPO_PAGO,DESCUENTO,ID_CLIENTE) VALUES ('" + fecha + "','"+Lbusu.getText()+"'," + total + ",'" + pago + "'," + text_des.getText() + ",(select id_clientes from clientes where no_tel = '" + tel.getText() + "'))";
+                                            System.out.println(total);
+                                            System.out.println("Ventas");
+                                            stmt.executeUpdate(sql);
+
+                                            for (int i = 0; i < table_pedidos.getRowCount(); i++) {
+                                                String sql2 = "INSERT INTO DET_VENTA_PEDIF (ID_VENTA,ID_PEDIDO) VALUES (" + num_venta.getText() + "," + table_pedidos.getValueAt(i, 0) + ")";
+                                                stmt.executeUpdate(sql2);
+                                               // String sql3 = "Update pedidos set status = 'Entregado' where id_pedido=" + table_pedidos.getValueAt(i, 0);
+                                                //stmt.executeUpdate(sql3);
+                                            }
+                                            for (int i = 0; i < table_productos.getRowCount(); i++) {
+                                                String id_venta = num_venta.getText();
+                                                String id_producto = "" + table_productos.getValueAt(i, 0);
+                                                String nombre = "" + table_productos.getValueAt(i, 1);
+                                                String cant = "" + table_productos.getValueAt(i, 2);
+                                                String pre = "" + table_productos.getValueAt(i, 3);
+                                                System.out.println(" " + id_venta + " " + id_producto + " " + nombre + " " + cant + " " + pre);
+                                                String sql2 = "INSERT INTO DET_VENTA_PRODUCf (ID_VENTA,ID_PRODUCTO,CANTIDAD,PRECIO_UNITARIO,NOMBRE) VALUES (" + id_venta + "," + id_producto + "," + cant + "," + pre + ",'" + nombre + "')";
+                                                stmt.executeUpdate(sql2);
+                                               // String sql3 = "UPDATE PRODUCTO SET EXISTENCIAS = EXISTENCIAS - 1 WHERE ID_PRODUCTO=" + table_productos.getValueAt(i, 0);
+                                               // stmt.executeUpdate(sql3);
+                                            }
+                                            for (int i = 0; i < table_serv.getRowCount(); i++) {
+                                                String sql2 = "INSERT INTO DET_VENTA_SERVf(ID_VENTA,ID_SERVICIO,CANTIDAD,PRECIO_UNITARIO,NOMBRE,SES_CON) VALUES(" + num_venta.getText() + "," + table_serv.getValueAt(i, 0) + "," + table_serv.getValueAt(i, 3) + "," + table_serv.getValueAt(i, 2) + ",'" + table_serv.getValueAt(i, 1) + "'," + table_serv.getValueAt(i, 3) + ")";
+                                                stmt.executeUpdate(sql2);
+                                            }
+                                            stmt.close();
+                                            JOptionPane.showMessageDialog(this, "Venta realizada con Exito");
+                                        } catch (SQLException e) {
+                                            JOptionPane.showMessageDialog(this, "Conexión Fallida" + e.getMessage());
+                                        }//---fin insert tabla falsa
+                                         
+                                    }//**** fin del insert
+                                    
                                     if (combo.getSelectedIndex() == 0) {
                                         if (miCon2 != null) {
                                             try {
@@ -864,7 +903,7 @@ public class VentasAsistentePedidos extends javax.swing.JFrame {
                                             + "================================\n"
                                             + "      *** NOTA DE VENTA ***     \n"
                                             + "FECHA: " + fecha + "  " + horaTicket + "\n"
-                                            + "NO. DE VENTA: " + num_venta.getText() + "\n"
+                                            + "================================\n" 
                                             + "================================\n"
                                             + "--------------------------------\n"
                                             + "           PRODUCTOS           \n"
@@ -957,6 +996,7 @@ public class VentasAsistentePedidos extends javax.swing.JFrame {
                         }
                     }//else del dinero}
             }//if del combo para ver si es credito
+            
             else{//si es credito
                  efectivo = 0+""; 
                         System.out.println("ENTRO");
@@ -1045,7 +1085,7 @@ public class VentasAsistentePedidos extends javax.swing.JFrame {
                                             + "================================\n"
                                             + "      *** NOTA DE VENTA ***     \n"
                                             + "FECHA: " + fecha + "  " + horaTicket + "\n"
-                                            + "NO. DE VENTA: " + num_venta.getText() + "\n"
+                                            + "================================\n" 
                                             + "================================\n"
                                             + "--------------------------------\n"
                                             + "           PRODUCTOS           \n"

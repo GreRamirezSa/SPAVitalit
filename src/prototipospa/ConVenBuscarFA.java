@@ -373,7 +373,7 @@ public class ConVenBuscarFA extends javax.swing.JFrame {
 
                     Connection miCon;
                     miCon = (new ConexionBD()).conectar();
-                    String sql = "select id_pedido as \"Id del pedido\" from det_venta_pedi where id_venta='"+id+"' ";
+                    String sql = "select id_pedido as \"Id del pedido\" from det_venta_pedif where id_venta_pedi='"+id+"' ";
                     Statement stmt = miCon.createStatement();
                     ResultSet r = stmt.executeQuery(sql);
                     // stmt.close();
@@ -413,7 +413,7 @@ public class ConVenBuscarFA extends javax.swing.JFrame {
 
                     Connection miCon2;
                     miCon2 = (new ConexionBD()).conectar();
-                    String sql2 = "select nombre as \"Nombre producto\" from det_venta_produc where id_venta='"+id+"'";
+                    String sql2 = "select nombre as \"Nombre producto\" from det_venta_producf where id_venta_produc='"+id+"'";
                     Statement stmt2 = miCon2.createStatement();
                     ResultSet r2 = stmt2.executeQuery(sql2);
                     // stmt.close();
@@ -453,7 +453,7 @@ public class ConVenBuscarFA extends javax.swing.JFrame {
 
                     Connection miCon3;
                     miCon3 = (new ConexionBD()).conectar();
-                    String sql3 = "select nombre as \"Nombre servicio\" from det_venta_serv where id_venta='"+id+"'";
+                    String sql3 = "select nombre as \"Nombre servicio\" from det_venta_servf where id_venta_serv='"+id+"'";
                     Statement stmt3 = miCon3.createStatement();
                     ResultSet r3 = stmt3.executeQuery(sql3);
                     // stmt.close();

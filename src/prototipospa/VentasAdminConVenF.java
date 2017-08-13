@@ -66,6 +66,8 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
         button_regresar = new javax.swing.JButton();
         button_eliminar1 = new javax.swing.JButton();
         button_eliminar2 = new javax.swing.JButton();
+        button_regresar1 = new javax.swing.JButton();
+        button_regresar2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Lbusu = new javax.swing.JLabel();
@@ -75,6 +77,10 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
         calendario = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
         resul = new javax.swing.JLabel();
+        txtusu = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtTotal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -133,6 +139,36 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
         });
         jPanel1.add(button_eliminar2);
 
+        button_regresar1.setBackground(new java.awt.Color(255, 136, 18));
+        button_regresar1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        button_regresar1.setText("Eliminar");
+        button_regresar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_regresar1MouseClicked(evt);
+            }
+        });
+        button_regresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_regresar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(button_regresar1);
+
+        button_regresar2.setBackground(new java.awt.Color(255, 136, 18));
+        button_regresar2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        button_regresar2.setText("Actualizar");
+        button_regresar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_regresar2MouseClicked(evt);
+            }
+        });
+        button_regresar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_regresar2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(button_regresar2);
+
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 36)); // NOI18N
         jLabel5.setText("Consultar Ventas Fadmin");
 
@@ -173,37 +209,61 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
         resul.setForeground(new java.awt.Color(201, 0, 0));
         resul.setText("0");
 
+        txtusu.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel7.setText("ID");
+
+        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel8.setText("Total");
+
+        txtTotal.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 113, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 983, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(102, 102, 102))
+                .addContainerGap()
+                .addComponent(Lbusu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Lbusu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(resul, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(156, 156, 156)))
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 453, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(resul, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel7)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtusu, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(39, 39, 39))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 113, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 983, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(102, 102, 102))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,13 +287,21 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(calendario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 34, Short.MAX_VALUE)
+                        .addGap(0, 39, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(resul, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtusu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resul, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
+                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -294,7 +362,7 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
 
                     Connection miCon;
                     miCon = (new ConexionBD()).conectar();
-                    String sql = "select  id_venta as \"ID venta\", fecha as \"Fecha\", usuario as \"Usuario\" , total as \"Total\", tipo_pago as \"Tipo Pago\", descuento as \"Descuento\" from venta where fecha ='"+ca+"'";
+                    String sql = "select  id_venta as \"ID venta\", fecha as \"Fecha\", usuario as \"Usuario\" , total as \"Total\", tipo_pago as \"Tipo Pago\", descuento as \"Descuento\" from ventaf where fecha ='"+ca+"'";
                     Statement stmt = miCon.createStatement();
                     ResultSet r = stmt.executeQuery(sql);
                    // stmt.close();
@@ -339,6 +407,84 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
           
     }//GEN-LAST:event_button_eliminar2MouseClicked
 
+    private void button_regresar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_regresar1MouseClicked
+         String id = txtusu.getText();
+        int response = JOptionPane.showConfirmDialog(this, "Esta seguro que desea eliminar el id " + id, "ATENCIÓN", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.NO_OPTION) {
+        } else if (response == JOptionPane.YES_OPTION) {
+            Connection miCon;
+            miCon = (new ConexionBD()).conectar();
+            if (!id.equals("")) {
+                if (miCon != null) {
+                    try {
+                        String sql = "DELETE FROM ventaf WHERE id_venta=" + "'" + id + "'";
+                        Statement stmt = miCon.createStatement();
+                        stmt.executeUpdate(sql);
+                        stmt.close();
+                        JOptionPane.showMessageDialog(this, "Se eliminó con éxito ");
+
+                    } catch (SQLException e) {
+                        JOptionPane.showMessageDialog(this, "No se pudo eliminar", "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Error, eliminar por id");
+            }
+            actualizar();
+            txtusu.setText("");
+        } else if (response == JOptionPane.CLOSED_OPTION) {
+        }
+    }//GEN-LAST:event_button_regresar1MouseClicked
+
+    private void button_regresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_regresar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_regresar1ActionPerformed
+
+    private void button_regresar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_regresar2MouseClicked
+           String total = txtTotal.getText();
+           String id = txtusu.getText();
+        int response = JOptionPane.showConfirmDialog(this, "¿Esta seguro que desea actualizar el total?" , "ATENCIÓN",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        switch (response) {
+            case JOptionPane.NO_OPTION:
+                break;
+            case JOptionPane.YES_OPTION:
+                //String tipo = cmbusu.getSelectedIndex() + "";
+                //System.out.println(tipo);
+                Connection miCon;
+                miCon = (new ConexionBD()).conectar();
+                if (!total.equals("")) {
+                    if (miCon != null) {
+                        try {
+                            String sql = "UPDATE ventaf SET total=' " + total + "' WHERE id_venta='" + id + "'";
+                            Statement stmt = miCon.createStatement();
+                            stmt.executeUpdate(sql);
+                            stmt.close();
+                            JOptionPane.showMessageDialog(this, "Actualizado con éxito ");
+                            
+                        } catch (SQLException e) {
+                            JOptionPane.showMessageDialog(this, "No se pudo actualizar", "Error",
+                                    JOptionPane.ERROR_MESSAGE);      
+                        }
+                    }
+                    txtTotal.setText("");
+                    txtusu.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error, actualizar el total por medio del ID");
+                }   actualizar();
+                break;
+            case JOptionPane.CLOSED_OPTION:
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_button_regresar2MouseClicked
+
+    private void button_regresar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_regresar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_regresar2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -350,7 +496,7 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
             Connection miCon;
             miCon = (new ConexionBD()).conectar();
 
-            String sql = "select  id_venta as \"ID venta\", fecha as \"Fecha\", usuario as \"Usuario\" , total as \"Total\", tipo_pago as \"Tipo Pago\", descuento as \"Descuento\" from venta order by id_venta desc";
+            String sql = "select  id_venta as \"ID venta\", fecha as \"Fecha\", usuario as \"Usuario\" , total as \"Total\", tipo_pago as \"Tipo Pago\", descuento as \"Descuento\" from ventaf order by id_venta desc";
             Statement stmt = miCon.createStatement();
             ResultSet r = stmt.executeQuery(sql);
 
@@ -426,16 +572,22 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
     private javax.swing.JButton button_eliminar1;
     private javax.swing.JButton button_eliminar2;
     private javax.swing.JButton button_regresar;
+    private javax.swing.JButton button_regresar1;
+    private javax.swing.JButton button_regresar2;
     private javax.swing.JButton button_verTodo;
     private com.toedter.calendar.JDateChooser calendario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel resul;
     private javax.swing.JTable table_usuarios;
+    private javax.swing.JTextField txtTotal;
+    private javax.swing.JTextField txtusu;
     // End of variables declaration//GEN-END:variables
 }

@@ -294,7 +294,7 @@ public class VentasAsistenteConVenF extends javax.swing.JFrame {
 
                     Connection miCon;
                     miCon = (new ConexionBD()).conectar();
-                    String sql = "select  id_venta as \"ID venta\", fecha as \"Fecha\", usuario as \"Usuario\" , total as \"Total\", tipo_pago as \"Tipo Pago\", descuento as \"Descuento\" from venta where fecha ='"+ca+"'";
+                    String sql = "select  id_venta as \"ID venta\", fecha as \"Fecha\", usuario as \"Usuario\" , total as \"Total\", tipo_pago as \"Tipo Pago\", descuento as \"Descuento\" from ventaf where fecha ='"+ca+"'";
                     Statement stmt = miCon.createStatement();
                     ResultSet r = stmt.executeQuery(sql);
                    // stmt.close();
@@ -350,7 +350,7 @@ public class VentasAsistenteConVenF extends javax.swing.JFrame {
             Connection miCon;
             miCon = (new ConexionBD()).conectar();
 
-            String sql = "select  id_venta as \"ID venta\", fecha as \"Fecha\", usuario as \"Usuario\" , total as \"Total\", tipo_pago as \"Tipo Pago\", descuento as \"Descuento\" from venta order by id_venta desc";
+            String sql = "select  id_venta as \"ID venta\", fecha as \"Fecha\", usuario as \"Usuario\" , total as \"Total\", tipo_pago as \"Tipo Pago\", descuento as \"Descuento\" from ventaf order by id_venta desc";
             Statement stmt = miCon.createStatement();
             ResultSet r = stmt.executeQuery(sql);
 
