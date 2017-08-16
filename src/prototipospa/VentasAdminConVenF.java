@@ -170,11 +170,11 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
         jPanel1.add(button_regresar2);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 36)); // NOI18N
-        jLabel5.setText("Consultar Ventas Fadmin");
+        jLabel5.setText("Consultar Ventas ");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoBueno.jpg"))); // NOI18N
 
-        Lbusu.setText("jLabel2");
+        Lbusu.setText("fadmin");
 
         table_usuarios.setBackground(new java.awt.Color(255, 102, 0));
         table_usuarios.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
@@ -236,14 +236,6 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 453, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -259,7 +251,18 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
                                         .addComponent(jLabel7)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtusu, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(39, 39, 39))))
+                                .addGap(39, 39, 39))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 597, Short.MAX_VALUE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(21, 21, 21)
+                                        .addComponent(jLabel5)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 113, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 983, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -275,7 +278,7 @@ public class VentasAdminConVenF extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jLabel1))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
+                                .addGap(27, 27, 27)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()

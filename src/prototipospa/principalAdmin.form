@@ -79,11 +79,13 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="button_servicios" min="-2" max="-2" attributes="0"/>
                                               <Component id="button_clientes" min="-2" max="-2" attributes="0"/>
+                                              <Component id="button_ventas1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="button_ventas" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="button_citas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="button_ventas2" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                       </Group>
@@ -112,11 +114,6 @@
                           </Group>
                       </Group>
                   </Group>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="button_ventas1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="334" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -164,7 +161,10 @@
                       <Component id="jLabel7" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="button_ventas1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="button_ventas1" min="-2" max="-2" attributes="0"/>
+                      <Component id="button_ventas2" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace pref="53" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -370,6 +370,19 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_ventas1MouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="button_ventas2">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="12" green="88" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/iconos/notebook.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_ventas2MouseClicked"/>
           </Events>
         </Component>
       </SubComponents>

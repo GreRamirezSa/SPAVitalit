@@ -116,11 +116,11 @@ public class ConVenBuscarFA extends javax.swing.JFrame {
         jPanel1.add(button_eliminar1);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 36)); // NOI18N
-        jLabel5.setText("Detalle Venta F");
+        jLabel5.setText("Detalle Venta ");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/logoBueno.jpg"))); // NOI18N
 
-        Lbusu.setText("jLabel2");
+        Lbusu.setText("F");
 
         table_serv.setBackground(new java.awt.Color(255, 102, 0));
         table_serv.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
