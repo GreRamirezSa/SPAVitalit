@@ -386,7 +386,6 @@ public class Certificados extends javax.swing.JFrame {
         String id = txt_idp.getText();
         if (!id.equals("")) {
             try {
-
                 if (!id.equals("")) {
                     DefaultTableModel modelo = new DefaultTableModel();
                     this.table_usuarios.setModel(modelo);
@@ -589,13 +588,13 @@ public class Certificados extends javax.swing.JFrame {
     }//GEN-LAST:event_button_registrarActionPerformed
 
     private void button_registrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_registrarMouseClicked
-         String de = txt_de.getText();
+        String de = txt_de.getText();
         String fechaE = new SimpleDateFormat("yyyy/MM/dd").format(calendario1.getDate());
         String fechaV = new SimpleDateFormat("yyyy/MM/dd").format(calendario.getDate());
         String para = txt_para.getText();
        // float valor = Float.parseFloat(txt_valor.getText());
         String valor2=txt_valor.getText();
-         String estado = "" + comboEstado.getSelectedItem() + "";
+        String estado = "" + comboEstado.getSelectedItem() + "";
         int response = JOptionPane.showConfirmDialog(this, "De: " + de + "\nPara: " + para + "\nValor: " + valor2 + "\nFecha expedido: " + fechaE + "\nFecha expira: " + fechaV + "\n¿Son los datos correctos?", "ATENCIÓN",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         switch (response) {
@@ -603,7 +602,7 @@ public class Certificados extends javax.swing.JFrame {
                 break;
             case JOptionPane.YES_OPTION:
                 Connection miCon,
-                 miCon2;
+                miCon2;
                 miCon = (new ConexionBD()).conectar();
                 miCon2 = (new ConexionBD()).conectar();
                 if (!de.equals("") && !para.equals("") && !valor2.equals("")) {
