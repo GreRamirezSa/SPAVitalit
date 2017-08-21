@@ -270,7 +270,7 @@ public class CitasAsistente extends javax.swing.JFrame {
         comboServicios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Poner servs" }));
 
         comboUno.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        comboUno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        comboUno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
 
         jLabel15.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel15.setText(":");
