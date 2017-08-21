@@ -575,7 +575,7 @@ public class CitasAsistente extends javax.swing.JFrame {
         String no = txt_no.getText();
         String comentario = txt_comen.getText();
         String asistente = txt_asis.getText();
-        String hora = "" + comboUno.getSelectedItem() + ":" + comboDos.getSelectedItem() + "" + comboAm.getSelectedItem() + "";
+        String hora = "" + comboUno.getSelectedItem() + ":" + comboDos.getSelectedItem();
         String fecha = "" + cmbanio.getSelectedItem() + "-" + cmbmes.getSelectedItem() + "-" + cmbdia.getSelectedItem() + "";
         String cabina = "" + combocabina.getSelectedItem() + "";
         String estado = "" + comboEstado.getSelectedItem() + "";
