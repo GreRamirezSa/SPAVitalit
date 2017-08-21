@@ -25,6 +25,7 @@ public class principalAdmin extends javax.swing.JFrame {
     Certificados cer;
     ChicaAdmin chica;
     VentasAdminConVenF vf;
+    Agenda ag;
 
     /**
      * Creates new form principalAdmin
@@ -431,7 +432,10 @@ public class principalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_button_ventas1MouseClicked
 
     private void button_ventas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_ventas2MouseClicked
-        // TODO add your handling code here:
+        ag = new Agenda();
+        ag.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
+        ag.nombre(Lbusu.getText());
     }//GEN-LAST:event_button_ventas2MouseClicked
 
     /**
